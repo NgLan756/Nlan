@@ -1,118 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Attention! Your Website Has Security Vulnerabilities That Need Immediate Attention. Failure To Address These Vulnerabilities May Result in Unauthorized Access, Data Breaches, Or Other Malicious Activities. It Is Crucial To Take Action To Secure Your Website And Protect Your Users' Sensitive Information">
-    <meta property="og:image" content="https://https://i.imgur.com/1ZBzYbX.jpeg" alt="1ZBzYbX.jpeg">
-    <link rel="icon" href="https://i.imgur.com/1ZBzYbX.jpeg" alt="1ZBzYbX.jpeg">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://i.imgur.com/1ZBzYbX.jpeg" alt="1ZBzYbX.jpeg">
-    <title>@HoangLan</title></title>
-    <style>
-        @keyframes rainbow {
-            0% { color: red; }
-            14% { color: orange; }
-            28% { color: yellow; }
-            42% { color: green; }
-            57% { color: blue; }
-            71% { color: indigo; }
-            85% { color: violet; }
-            100% { color: red; }
-        }
-        .rainbow-text {
-            animation: rainbow 2s infinite linear;
-        }
-        
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .loading {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid white;
-            border-top: 3px solid red;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Nlan UI Neon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Space+Grotesk:wght@500&display=swap');
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #2a003f, #0a001f);
+      font-family: 'Space Grotesk', 'Orbitron', sans-serif;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 8s linear infinite;
+      margin: 10px 0;
+    }
+    @keyframes rainbow {
+      0% {background-position: 0%}
+      100% {background-position: 400%}
+    }
+    .section {
+      margin: 15px 25px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff0066;
+    }
+    .section h2 {
+      font-size: 30px;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 5s linear infinite;
+      margin: 0 0 20px;
+      text-align: left;
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      gap: 12px;
+    }
+    .slider-container span {
+      flex: 1;
+      font-size: 28px;
+    }
+    .slider-wrapper {
+      flex: 3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 20px;
+      border-radius: 5px;
+      background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+      background-size: 300%;
+      box-shadow: 0 0 10px #ff0055;
+      animation: rainbow 5s linear infinite;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 30px;
+      width: 30px;
+      background: white;
+      border-radius: 50%;
+      border: 3px solid #ff0055;
+      box-shadow: 0 0 10px white;
+    }
+    .percent {
+      width: 60px;
+      text-align: right;
+      font-size: 28px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #aaa;
+    }
+    .contact {
+      display: flex;
+      flex-direction: column;
+      font-size: 25px;
+      gap: 10px;
+      margin-left: 10px;
+    }
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact img {
+      width: 30px;
+      height: 30px;
+    }
+    .avatar-container {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      animation: rainbow 5s linear infinite;
+    }
+    .avatar-container img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .floating-text {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      font-size: 18px;
+      color: white;
+      white-space: nowrap;
+      animation: scrollText 6s linear infinite;
+    }
+    @keyframes scrollText {
+      0% {transform: translateX(0%); opacity: 1;}
+      90% {transform: translateX(100%); opacity: 0;}
+      100% {transform: translateX(0%); opacity: 0;}
+    }
+  </style>
 </head>
 <body>
-    <canvas id="spiderCanvas"></canvas>
-    
-    <audio id="lagu" loop src="https://jmp.sh/s/ROp0AUbnl8eWZ7GuKQG3"></audio>
+  <h1>#MENU-NguyenHoangLan</h1>
 
-    <table height="80%" width="100%">
-        <tbody>
-            <tr>
-                <td>
-                    <center>
-                        <br>
-                        <div style="text-align: center; color: white;">
-                            <b>[] <font class="rainbow-text"><i>@NguyenLaniOS</i></font> []</b>
-                            <br>
-                            <span style="color: red;">File - Hack - Acc Game Liên Hệ Nglan..!</span>
-                            <hr>
-                        </div>
-                        <font size="4" color="white">[ </font>
-                        <font size="4" color="white"> • NHL || REGEDIT • <font class="rainbow-text">@NgHoangLan <font size="4" color="white"> ]</font>
-                        <br>
-                        <font color="white" face="verdana" size="3">-=|</font>
-                        <font face="verdana" color="white" style="text-shadow: white 0 0 10px ;" size="2">
-                            <marquee scrollamount="6" behavior="alternate" width="50%">
-                                | Mua Gì Liên Hệ Zalo : 0971553617 - NGUYEN HOANG LAN VIP |
-                            </marquee>
-                        </font>
-                        <font color="white" face="verdana" size="3">|=-</font>
-                        <br>
-                        <img alt="" src="https://i.gifer.com/PcUC.gif">
-                        <hr>
-                        <br>
-                        <b><span style="color: white;">Zalo Contact: 097.155.3617</br><i class="rainbow-text"> - <i style="color: white;"> Hỗ Trợ Kéo Tâm <i class="rainbow-text"> - <i style="color: white;"> AimLock, Sensi, Config,... <i class="rainbow-text"> - <i style="color: white;"> Reg PC, Laptop <i class="rainbow-text">{}</i></span></b><br>
-                        <b><span style="color: white;"></br>Cung Cấp Đủ Loại || Data File Uy Tín 100%<i class="rainbow-text"> - Contact: NgLan </i></span></b><br>
-                        <div class="control-buttons">
-                            <button class="toggle-music" onclick="toggleMusic()">
-                                <div class="loading" id="loading"></div>
-                                <span id="music-text"> OK </span>
-                            </button>
-                        </div>
-                    </center>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <div class="section"><h2>Function </h2>
+    <div class="slider-container"><span>AIMBOT</span>
+      <div class="slider-wrapper">
+        <input type="range" min="0" max="100" value="50" oninput="this.nextElementSibling.innerText=this.value+'%'">
+        <div class="percent">50%</div>
+      </div>
+    </div>
+    <div class="slider-container"><span>AIMLOCK</span>
+      <div class="slider-wrapper">
+        <input type="range" min="0" max="100" value="70" oninput="this.nextElementSibling.innerText=this.value+'%'">
+        <div class="percent">70%</div>
+      </div>
+    </div>
+    <div class="slider-container"><span>SENSITIVY</span>
+      <div class="slider-wrapper">
+        <input type="range" min="0" max="100" value="30" oninput="this.nextElementSibling.innerText=this.value+'%'">
+        <div class="percent">30%</div>
+      </div>
+    </div>
+    <div class="slider-container"><span>ĐẠN THẲNG</span>
+      <div class="slider-wrapper">
+        <input type="range" min="0" max="100" value="90" oninput="this.nextElementSibling.innerText=this.value+'%'">
+        <div class="percent">90%</div>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        let isPlaying = false;
-        const audio = document.getElementById("lagu");
-        const musicText = document.getElementById("music-text");
-        const loading = document.getElementById("loading");
+  <div class="section"><h2>AIMLOCK FULL ĐỎ HỖ TRỢ KÉO TÂM VÀ CÁC DẠNG FILE & ACC GAME UY TÍN LIÊN HỆ @Nlan NHÉ ..! ❤️‍🔥</h2></div>
 
-        function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                musicText.innerText = "Run Code";
-                loading.style.display = "none";
-            } else {
-                audio.play();
-                musicText.innerText = "Pause Config";
-                loading.style.display = "inline-block";
-            }
-            isPlaying = !isPlaying;
-        }
-    </script>
+  <div class="section"><h2>Contact info👇🏻</h2>
+    <div class="contact">
+      <span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png"> Zalo Me: 0971553617</span>
+      <span><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"> Facebook: Ng Lann</span>
+      <span><img src="https://store-images.s-microsoft.com/image/apps.4784.13634052595610511.c45457c9-b4af-46b0-8e61-8d7c0aec3f56.3d483847-81a6-4078-8f83-a35c5c38ee92?h=210"> TikTok: @nlan.trumfile</span>
+    </div>
+  </div>
+
+  <div class="avatar-container"><img src="https://i.imgur.com/PF7yQ9M.jpeg" alt="avatar"></div>
+  <div class="floating-text">#NguyenHoangLan</div>
+
+  <footer>Copyright © 2025 NlaniOS</footer>
 </body>
 </html>
